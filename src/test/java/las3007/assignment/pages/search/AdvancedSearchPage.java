@@ -1,6 +1,5 @@
 package las3007.assignment.pages.search;
 
-import las3007.assignment.factory.search.AdvancedTitleSearchPageFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -18,8 +17,8 @@ public class AdvancedSearchPage {
         return driver.findElement(advanceSearchHeaderBy).getText();
     }
 
-    public AdvancedTitleSearchPageFactory loadAdvancedTitleSearchPage() {
+    public AdvancedTitleSearchPage loadAdvancedTitleSearchPage() {
         driver.findElement(advancedTitleSearchLinkBy).click();
-        return new AdvancedTitleSearchPageFactory(driver);
+        return new AdvancedTitleSearchPage(driver);
     }
 }

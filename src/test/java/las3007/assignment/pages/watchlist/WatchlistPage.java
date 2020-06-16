@@ -12,7 +12,6 @@ public class WatchlistPage {
     protected WebDriver driver;
 
     private By headerBy = By.tagName("h1");
-    private By totalSelectedNumBy = By.cssSelector("span.element-selected-total");
     private By toggleDeleteBy = By.xpath("//*[@id=\"page-1\"]/div/div/div[1]/div");
     private By watchlistMenuItemBy = By.xpath("//*[@id=\"imdbHeader\"]/div[2]/div[4]/a");
     private By watchlistHeadersBy = By.tagName("h3");

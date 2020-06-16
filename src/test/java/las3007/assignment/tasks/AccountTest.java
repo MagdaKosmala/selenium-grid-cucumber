@@ -1,80 +1,33 @@
 package las3007.assignment.tasks;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import las3007.assignment.factory.account.AccountDetailsPageFactory;
 import las3007.assignment.factory.account.AccountPageFactory;
-import las3007.assignment.factory.common.MenuPageFactory;
-import las3007.assignment.factory.login.LoginPageFactory;
-import las3007.assignment.factory.login.SigninPageFactory;
-import las3007.assignment.pages.account.AccountDetailsPage;
-import las3007.assignment.pages.account.AccountPage;
-import las3007.assignment.pages.common.MenuPage;
-import las3007.assignment.pages.login.LoginPage;
+import las3007.assignment.utilis.PropertyReader;
 
-import java.net.MalformedURLException;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AccountTest extends BaseTest {
+    private String dayOfBirth, monthOfBirth, yearOfBirth, country, gender; //gender value: f or m
 
     private AccountPageFactory accountPageFactory;
-    private AccountPage accountPage;
     private AccountDetailsPageFactory accountDetailsPageFactory;
-    private AccountDetailsPage accountDetailsPage;
-    private SigninPageFactory signinPageFactory;
-    private LoginPageFactory loginPageFactory;
-    private LoginPage loginPage;
-    private MenuPageFactory menuPageFactory;
-    private MenuPage menuPage;
-
-    @Before(value = "@account_firefox")
-    public void setup_account_firefox() throws MalformedURLException {
-        getDriver("firefox");
-    }
-
-    @Before(value = "@account_chrome")
-    public void setup_account_chrome() throws MalformedURLException {
-        getDriver("chrome");
-    }
-
-    @Before
-    public void setup_account_props() {
-        getAccountProperties();
-        getAccountDetailsProperties();
-    }
-
-    @After
-    private void accountTearDownDriver() {
-        tearDown();
-    }
 
     @Given("the user is loggedin to an account")
     public void the_user_is_loggedin_to_an_account() {
-        signinPageFactory = new SigninPageFactory(driver);
-        signinPageFactory.loadSignInPage();
-        loginPageFactory = signinPageFactory.signInForExistingAccount();
-        loginPageFactory.enterCredentials( email,password);
-        loginPageFactory.submitLoginForm();
-
-        menuPageFactory = new MenuPageFactory(driver);
+        loginUser();
     }
 
-    //2nd option: run with multiple browsers with scenario outline
-    @Given("start browser {string} to change account personal details")
-    public void start_browser_to_change_account_personal_details(String browser) throws MalformedURLException {
-        getDriver(browser);
-    }
-
-    @When("the user clicks on account menu list")
+    @Given("the user clicks on account menu list")
     public void the_user_clicks_on_account_menu_list() {
         menuPageFactory.openLoggedinAccountMenu();
     }
 
-    @When("the user clicks on account setting link to be redirected to account page")
+    @Given("the user clicks on account setting link to be redirected to account page")
     public void the_user_clicks_on_account_setting_link_to_be_redirected_to_account_page() {
         accountPageFactory = menuPageFactory.selectAccountSettingsMenuItem();
     }
@@ -86,6 +39,7 @@ public class AccountTest extends BaseTest {
 
     @When("the user enters personal details")
     public void the_user_enters_personal_details() {
+        getAccountDetailsProperties();
         accountDetailsPageFactory.enterAccountDetails(gender,dayOfBirth, monthOfBirth, yearOfBirth, country);
     }
 
@@ -112,5 +66,17 @@ public class AccountTest extends BaseTest {
     @Then("the user should see success message {string}")
     public void the_user_should_see_success_message(String successMessage) {
         assertEquals(successMessage, accountDetailsPageFactory.getUpdateDetailsSuccessMessage());
+    }
+
+    private void getAccountDetailsProperties() {
+        try {
+            dayOfBirth = PropertyReader.getValue("day");
+            monthOfBirth = PropertyReader.getValue("month");
+            yearOfBirth = PropertyReader.getValue("year");
+            country = PropertyReader.getValue("country");
+            gender = PropertyReader.getValue("gender");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

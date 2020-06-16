@@ -1,11 +1,11 @@
 package las3007.assignment.pages.common;
 
-import las3007.assignment.factory.account.AccountPageFactory;
-import las3007.assignment.factory.login.ActivityPageFactory;
-import las3007.assignment.factory.rating.RatingPageFactory;
-import las3007.assignment.factory.search.AdvancedSearchPageFactory;
-import las3007.assignment.factory.search.SearchPageFactory;
-import las3007.assignment.factory.watchlist.WatchlistPageFactory;
+import las3007.assignment.pages.account.AccountPage;
+import las3007.assignment.pages.login.ActivityPage;
+import las3007.assignment.pages.rating.RatingPage;
+import las3007.assignment.pages.search.AdvancedSearchPage;
+import las3007.assignment.pages.search.SearchPage;
+import las3007.assignment.pages.watchlist.WatchlistPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,9 +37,9 @@ public class MenuPage {
         driver.findElement(loggedinAccoutHeaderBy).click();
     }
 
-    public ActivityPageFactory selectActivityMenuItem() {
+    public ActivityPage selectActivityMenuItem() {
         driver.findElement(activityMenuItemBy).click();
-        return new ActivityPageFactory(driver);
+        return new ActivityPage(driver);
     }
 
     public void signOut() {
@@ -51,19 +51,19 @@ public class MenuPage {
         return driver.findElement(signInBtnBy);
     }
 
-    public AccountPageFactory selectAccountSettingsMenuItem() {
+    public AccountPage selectAccountSettingsMenuItem() {
         driver.findElement(accountSettingsMenuItemBy).click();
-        return new AccountPageFactory(driver);
+        return new AccountPage(driver);
     }
 
-    public RatingPageFactory selectRatingMenuItem() {
+    public RatingPage selectRatingMenuItem() {
         driver.findElement(ratingMenuItemBy).click();
-        return new RatingPageFactory(driver);
+        return new RatingPage(driver);
     }
 
-    public WatchlistPageFactory loadWatchlistPage() {
+    public WatchlistPage loadWatchlistPage() {
         driver.findElement(watchlistMenuItemBy).click();
-        return new WatchlistPageFactory(driver);
+        return new WatchlistPage(driver);
     }
 
     public void enterSearchText(String text) {
@@ -71,17 +71,17 @@ public class MenuPage {
         driver.findElement(searchFldBy).sendKeys(text);
     }
 
-    public SearchPageFactory submitSearch() {
+    public SearchPage submitSearch() {
         driver.findElement(searchBtnBy).click();
-        return new SearchPageFactory(driver);
+        return new SearchPage(driver);
     }
 
     public void openSearchCategoryMenu() {
         driver.findElement(categorySelectorBtnBy).click();
     }
 
-    public AdvancedSearchPageFactory selectAdvanceSearch() {
+    public AdvancedSearchPage selectAdvanceSearch() {
         driver.findElement(advanceMenuItemBy).click();
-        return new AdvancedSearchPageFactory(driver);
+        return new AdvancedSearchPage(driver);
     }
 }

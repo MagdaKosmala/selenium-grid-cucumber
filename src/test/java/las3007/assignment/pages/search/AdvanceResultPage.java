@@ -7,7 +7,6 @@ public class AdvanceResultPage {
     protected WebDriver driver;
 
     private By advanceSearchFirstResultImgBy = By.xpath("//*[@id=\"main\"]/div/div[3]/div/div[1]/div[2]/a/img");
-    private By sortByAZBy = By.linkText("A-Z");
     private By firstResultTitleBy = By.xpath("//*[@id=\"main\"]/div/div[3]/div/div[1]/div[3]/h3/a");
 
     public AdvanceResultPage(WebDriver driver) {

@@ -1,15 +1,12 @@
 Feature: Account test
-
   Background: User is logged in to change personal details
     Given the user is loggedin to an account
-    When the user clicks on account menu list
+    And the user clicks on account menu list
     And the user clicks on account setting link to be redirected to account page
 
-  @account_chrome
   Scenario: User visits account page
     Then the user should see link to personal details page
 
-  @account_firefox
   Scenario: User submits personal details
     When the user clicks on personal details link
     And the user enters personal details

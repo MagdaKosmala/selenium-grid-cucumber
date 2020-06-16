@@ -1,6 +1,5 @@
 package las3007.assignment.pages.search;
 
-import las3007.assignment.factory.search.AdvanceResultPageFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -21,9 +20,9 @@ public class AdvancedTitleSearchPage {
         driver.findElement(groupCheckboxBy).click();
     }
 
-    public AdvanceResultPageFactory loadAdvanceResultPage() {
+    public AdvanceResultPage loadAdvanceResultPage() {
         driver.findElement(searchBtnBy).click();
-        return new AdvanceResultPageFactory(driver);
+        return new AdvanceResultPage(driver);
     }
 
     public void selectSortByAZ() {

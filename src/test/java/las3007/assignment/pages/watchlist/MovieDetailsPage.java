@@ -10,9 +10,7 @@ public class MovieDetailsPage {
 
     protected WebDriver driver;
 
-    private By addToWatchlistTextBtnBy = By.xpath("//*[@id=\"title-overview-widget\"]/div[2]/div[2]/button[2]/div");
     private By addToWatchlistBtnBy = By.cssSelector("button.ipc-button.uc-add-wl-button-icon--add.watchlist--title-main-desktop-standalone.ipc-button--core-base.ipc-button--single-padding.ipc-button--default-height");
-    private By addedToWatchlistTextBtnBy = By.xpath("//*[@id=\"title-overview-widget\"]/div[2]/div[2]/button[1]/div");
     private By addedIconBy = By.cssSelector("svg.ipc-icon.ipc-icon--done.ipc-button__icon.ipc-button__icon--pre");
     private By startRatingBtnBy = By.xpath("//*[@id=\"star-rating-widget\"]/div");
     private By rateValueBy = By.cssSelector("span.star-rating-value");

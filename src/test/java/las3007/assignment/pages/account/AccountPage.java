@@ -1,6 +1,5 @@
 package las3007.assignment.pages.account;
 
-import las3007.assignment.factory.account.AccountDetailsPageFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -17,8 +16,8 @@ public class AccountPage {
         return driver.findElement(personalDetailsLinkBy).getText();
     }
 
-    public AccountDetailsPageFactory loadPersonalDetailsPage() {
+    public AccountDetailsPage loadPersonalDetailsPage() {
         driver.findElement(personalDetailsLinkBy).click();
-        return new AccountDetailsPageFactory(driver);
+        return new AccountDetailsPage(driver);
     }
 }

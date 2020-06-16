@@ -15,9 +15,6 @@ public class AdvanceResultPageFactory {
     @FindBy(linkText = "A-Z")
     private WebElement sortByAZ;
 
-   @FindBy(linkText = "A-Z▲")
-    private WebElement changeOrder;
-
     @FindBy(xpath = "//*[@id=\"main\"]/div/div[3]/div/div[1]/div[3]/h3/a")
     private WebElement firstResultTitle;
 

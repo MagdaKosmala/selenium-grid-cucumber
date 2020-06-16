@@ -67,11 +67,6 @@ public class MenuPageFactory {
 
     public void signOut() {
         menuItemSignOut.click();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     public WebElement getSignInButton() {

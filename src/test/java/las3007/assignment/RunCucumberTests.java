@@ -8,8 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         monochrome = true,
         strict = true,
-        features = "src/test/resources/features"
-//        glue="las3007\\assignment\\tasks"
+        features = "src/test/resources/features",
+        glue="las3007.assignment.tasks"
+//        tags = {"@mySelectedTest"}
 )
 public class RunCucumberTests {
 }

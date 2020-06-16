@@ -36,12 +36,10 @@ public class LoginPageFactory {
         try {
             emailFld.clear();
             passwordFld.clear();
-            Thread.sleep(2000);
-
+            Thread.sleep(1000);
             emailFld.sendKeys(email);
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             passwordFld.sendKeys(password);
-
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();

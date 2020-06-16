@@ -1,6 +1,5 @@
 package las3007.assignment.pages.login;
 
-import las3007.assignment.factory.login.LoginPageFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -24,8 +23,8 @@ public class SigninPage {
         return driver.findElement(signInHeaderBy).getText();
     }
 
-    public LoginPageFactory signInForExistingAccount() {
+    public LoginPage signInForExistingAccount() {
         driver.findElement(signInBtnBy).click();
-        return new LoginPageFactory(driver);
+        return new LoginPage(driver);
     }
 }

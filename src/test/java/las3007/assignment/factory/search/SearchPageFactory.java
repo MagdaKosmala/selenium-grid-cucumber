@@ -1,6 +1,7 @@
 package las3007.assignment.factory.search;
 
-import las3007.assignment.factory.watchlist.MovieDetailsPageFactory;
+import las3007.assignment.factory.common.MovieDetailsPageFactory;
+import las3007.assignment.pages.watchlist.MovieDetailsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,5 +38,10 @@ public class SearchPageFactory {
     public MovieDetailsPageFactory loadMovieDetailsPage() {
         movieTitles.get(0).findElements(By.tagName("td")).get(0).click();
         return new MovieDetailsPageFactory(driver);
+    }
+
+    public MovieDetailsPage loadMovieDetailsPage2() {
+        movieTitles.get(0).findElements(By.tagName("td")).get(0).click();
+        return new MovieDetailsPage(driver);
     }
 }

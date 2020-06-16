@@ -1,9 +1,9 @@
+@login
 Feature: Login test
   Background: User visits sign in page
     Given  the user visits the signIn page
     And the user clicks the Sign in with IMDb button
 
-  @login_chrome
   Scenario: User submits empty credentials to login
     When  the user leaves empty form fields
     And the user clicks on sign in button
@@ -11,13 +11,11 @@ Feature: Login test
       | Enter your email     |
       | Enter your password  |
 
-  @login_chrome
-  Scenario: User submits incorrect credentials to login
+  Scenario: User submits incorrect credentials to
     When the user enters incorrect password
     And the user clicks on sign in button
     Then the error message should be "Your password is incorrect"
 
-  @login_firefox
   Scenario: User login successfully
     When the user enters correct credentials
     And the user clicks on sign in button
@@ -26,7 +24,6 @@ Feature: Login test
     Then the user should see username in menu
     Then the loggedin user should see on profile page link to edit profile
 
-  @login_firefox
   Scenario: User logout
     When the user enters correct credentials
     And the user clicks on sign in button
