@@ -10,7 +10,6 @@ import org.junit.runner.RunWith;
         strict = true,
         features = "src/test/resources/features",
         glue="las3007.assignment.tasks"
-//        tags = {"@mySelectedTest"}
 )
 public class RunCucumberTests {
 }
