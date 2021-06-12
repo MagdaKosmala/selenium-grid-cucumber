@@ -24,17 +24,17 @@ public abstract class BaseTest {
     protected MenuPageFactory menuPageFactory;
 
     protected void getDriver(String browserName) throws MalformedURLException {
-        if(driver == null) {
+        if(driver != null) 
+            return;
 
-            DesiredCapabilities dc = new DesiredCapabilities();
-            dc.setBrowserName(browserName);
+        DesiredCapabilities dc = new DesiredCapabilities();
+        dc.setBrowserName(browserName);
 
-            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
-            driver.manage().deleteAllCookies();
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-            driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
-        }
+        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
+        driver.manage().deleteAllCookies();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS); 
     }
 
     protected void tearDown() {
